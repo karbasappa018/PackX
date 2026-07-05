@@ -1,0 +1,29 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  application:
+    name: packx-backend
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/packx}
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: ${MAX_FILE_SIZE:200MB}
+      max-request-size: ${MAX_REQUEST_SIZE:250MB}
+
+app:
+  storage:
+    upload-dir: ${UPLOAD_DIR:storage/uploads}
+    output-dir: ${OUTPUT_DIR:storage/output}
+    extracted-dir: ${EXTRACTED_DIR:storage/extracted}
+  cors:
+    allowed-origins: ${ALLOWED_ORIGINS:http://localhost:5173}
+  packing:
+    allowed-extensions: ${ALLOWED_EXTENSIONS:.txt}
+    max-files-per-operation: ${MAX_FILES_PER_OPERATION:100}
+
+logging:
+  level:
+    com.packx.backend: INFO
